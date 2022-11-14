@@ -40,6 +40,7 @@ function setup(){
     clientSocket.on('play', () => {
       console.log('got play, starting game')
       shiftPage('#play')
+      clientSocket.emit('playTime')
     })
     
     //send kliks når palmen klikkes
@@ -50,9 +51,19 @@ function setup(){
     
     clientSocket.on('status', players =>{
       player1Name.html(players[0].name)
-      player1Score.html(players[0].points)
+      player1Score.html(players[0].points + '🍌')
       player2Name.html(players[1].name)
-      player2Score.html(players[1].points)
+      player2Score.html(players[1].points + '🍌')
+    })
+
+    clientSocket.on('time', count =>{
+      timer.html(count)
+      console.log(count)
+    })
+
+    clientSocket.on('result', () => {
+      shiftPage('#result')
+      clientSocket.emit('timerStop')
     })
 
   })

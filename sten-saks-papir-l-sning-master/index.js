@@ -21,6 +21,7 @@ let gotName = 0, gotChoice = 0
 //players arrayet er serverens sted til at holde styr på de to spillere
 let players = []
 
+
 //al snak med klienterne sker på connection
 serverSocket.on('connection', socket => {
     //tjek om der er plads til flere spillere 
@@ -62,17 +63,22 @@ serverSocket.on('connection', socket => {
         } 
     })
 
-    //lav timer på 10 sekunder
-    let time = 10
+    socket.on('playTime', ()=>{
+        let time = 10
 
+        setInterval(() => {
+            serverSocket.emit('time', time)
+            time--
+            if(time==0){
+                serverSocket.emit('result', players)
+            }
+            console.log(time)
+        }, 1000);
+    })
 
-    setInterval( ()=>{
-        serverSocket.emit('time', time)
-        time--
-        if(time==0)
-        //stop spillet
-            serverSocket.emit('result', players)
-    }, 1000)
+    socket.on('timerStop', ()=>{
+        
+    })
 
     socket.on('click', ()=>{
 
