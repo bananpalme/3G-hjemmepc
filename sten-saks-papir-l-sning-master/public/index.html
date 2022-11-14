@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.min.js" integrity="sha512-xzC4RSo+4m1clLhr0pQr6yFjO9bJ0py6+l65SBibI8/pSEU8U4iVZ7xm95WRq8PXw2MKv8SSR3QkqR2jciG5Ug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" integrity="sha512-rCZdHNB0AePry6kAnKAVFMRfWPmUXSo+/vlGtrOUvhsxD0Punm/xWbEh+8vppPIOzKB9xnk42yCRZ5MD/jvvjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Template</title>
+</head>
+<body>
+    <div class="page " id="name">
+        <div class="title">Indtast dit navn</div>
+        <div class="input">
+            <input type="text" id="nameInput" placeholder="Aa">
+            <button id="nameButton">OK</button>
+        </div>
+    </div>    
+    <div class="page " id="reject">
+        <div class="title">Desværre min fine ven, der var ikke plads</div>
+        <div id="rejectPicture"><img src="./assets/sad_bananareject_banana.png" alt="" id="rejectBanan"></div>
+        <button id="rejectButton">Prøv igen</button>
+    </div>
+    <div class="page " id="lobby">
+        <div class="title" id="lobbyText">Venter på spillere</div>
+        <div class="loadingPics">
+            <div><img id="lodBanan"src="./assets/Happy_Banana_vente_side.png" alt=""></div>
+            <div><img id="loadingGIF" src="./assets/Loading_gif_wating_gif.gif" alt=""></div>
+
+        </div>
+    </div>
+    <div class="page " id="play">
+        <div class="title">Klik på palmen <span id='myName'></span></div>
+        <div class="timer" id="timer">10</div>
+        <div id="playPicture"><img id="playPalme" src="./assets/Banan_palme-palme_clicker.png" alt="cum"></div>
+        <div class="scoreDiv">
+            <div id="player1">
+                <div id="player1Name">Mogens</div>
+                <div id="player1Score">69🍌</div>
+            </div>
+            <div id="player2">
+                <div id="player2Name">Burger</div>
+                <div id="player2Score">50🍌</div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="page" id="result">
+        <div class="timer" id="winner">Allan</div>
+        <div class="title">Vandt!</div>
+        <div id="resultPicture"> <img src="./assets/Cute_palm_tree_winning_site.png" alt="" id="resultPalme"></div>
+        <div class="scoreDiv">
+            <div id="player1">
+                <div id="player1Name"></div>
+                <div id="player1Score"></div>
+            </div>
+            <div id="player2">
+                <div id="player2Name"></div>
+                <div id="player2Score"></div>
+            </div>
+        </div>
+        <button id="restartButton">Spil igen</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
